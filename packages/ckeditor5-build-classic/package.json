@@ -1,5 +1,5 @@
 {
-  "name": "@ckeditor/ckeditor5-build-classic",
+  "name": "ckeditor5-custom-build",
   "version": "34.0.0",
   "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
@@ -32,10 +32,17 @@
     "@ckeditor/ckeditor5-block-quote": "^34.0.0",
     "@ckeditor/ckeditor5-ckfinder": "^34.0.0",
     "@ckeditor/ckeditor5-cloud-services": "^34.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^30.1.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^30.1.0",
     "@ckeditor/ckeditor5-easy-image": "^34.0.0",
     "@ckeditor/ckeditor5-editor-classic": "^34.0.0",
     "@ckeditor/ckeditor5-essentials": "^34.0.0",
+    "@ckeditor/ckeditor5-find-and-replace": "^34.0.0",
+    "@ckeditor/ckeditor5-font": "^34.0.0",
     "@ckeditor/ckeditor5-heading": "^34.0.0",
+    "@ckeditor/ckeditor5-highlight": "^34.0.0",
+    "@ckeditor/ckeditor5-horizontal-line": "^34.0.0",
+    "@ckeditor/ckeditor5-html-support": "^34.0.0",
     "@ckeditor/ckeditor5-image": "^34.0.0",
     "@ckeditor/ckeditor5-indent": "^34.0.0",
     "@ckeditor/ckeditor5-link": "^34.0.0",
@@ -43,8 +50,16 @@
     "@ckeditor/ckeditor5-media-embed": "^34.0.0",
     "@ckeditor/ckeditor5-paragraph": "^34.0.0",
     "@ckeditor/ckeditor5-paste-from-office": "^34.0.0",
+    "@ckeditor/ckeditor5-remove-format": "^34.0.0",
+    "@ckeditor/ckeditor5-restricted-editing": "^34.0.0",
+    "@ckeditor/ckeditor5-source-editing": "^34.0.0",
+    "@ckeditor/ckeditor5-special-characters": "^34.0.0",
     "@ckeditor/ckeditor5-table": "^34.0.0",
-    "@ckeditor/ckeditor5-typing": "^34.0.0"
+    "@ckeditor/ckeditor5-theme-lark": "^34.0.0",
+    "@ckeditor/ckeditor5-typing": "^34.0.0",
+    "@ckeditor/ckeditor5-upload": "^34.0.0",
+    "@ckeditor/ckeditor5-watchdog": "^34.0.0",
+    "ckeditor5-placeholder": "^1.2.1"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^34.0.0",

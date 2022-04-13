@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  app:
+    image: node:16-alpine
+    user: '1000'
+    volumes:
+      - '.:/app'
+
