@@ -5,4 +5,5 @@ services:
     user: '1000'
     volumes:
       - '.:/app'
-
+    command:
+      -

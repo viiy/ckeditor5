@@ -4,11 +4,10 @@
  */
 import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import AutoLink from '@ckeditor/ckeditor5-link/src/autolink.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
-import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter.js';
-import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
 import DataFilter from '@ckeditor/ckeditor5-html-support/src/datafilter.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
@@ -34,7 +33,8 @@ import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
-import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
+
+/* import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';*/
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js';
@@ -45,6 +45,7 @@ import SpecialCharactersCurrency from '@ckeditor/ckeditor5-special-characters/sr
 import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials.js';
 import SpecialCharactersText from '@ckeditor/ckeditor5-special-characters/src/specialcharacterstext.js';
 import StandardEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/standardeditingmode.js';
+import RestrictedEditingMode  from '@ckeditor/ckeditor5-restricted-editing/src/restrictededitingmode';
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
 import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript.js';
@@ -55,20 +56,26 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
-import Placeholder from "ckeditor5-placeholder";
+import Placeholder from 'ckeditor5-placeholder';
 import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
+import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 
 class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
 Editor.builtinPlugins = [
+	CKFinder,
+	CKFinderUploadAdapter,
+	GeneralHtmlSupport,
+	Alignment,
+	RestrictedEditingMode,
 	Base64UploadAdapter,
 	Autoformat,
 	AutoLink,
 	BlockQuote,
 	Bold,
-	CKFinderUploadAdapter,
-	CloudServices,
 	Code,
 	DataFilter,
 	Essentials,
@@ -113,7 +120,7 @@ Editor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	Underline,
-	Placeholder,
+	Placeholder
 ];
 
 // Editor configuration.
@@ -124,23 +131,14 @@ Editor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
-			'link',
+			'strikethrough',
+			'underline',
 			'bulletedList',
 			'numberedList',
 			'|',
 			'outdent',
 			'indent',
-			'|',
-			'imageUpload',
-			'mediaEmbed',
-			'|',
-			'blockQuote',
-			'insertTable',
-			'|',
-			'findAndReplace',
-			'undo',
-			'redo',
-			'code',
+			'alignment',
 			'|',
 			'fontBackgroundColor',
 			'fontColor',
@@ -149,23 +147,36 @@ Editor.defaultConfig = {
 			'highlight',
 			'horizontalLine',
 			'removeFormat',
-			'sourceEditing',
 			'specialCharacters',
-			'strikethrough',
 			'subscript',
 			'superscript',
-			'underline',
+			'link',
+			'|',
+			'imageUpload',
+			'mediaEmbed',
+			'ckfinder',
+			'|',
+			'blockQuote',
+			'insertTable',
+			'|',
+			'findAndReplace',
+			'undo',
+			'redo',
 			'|',
 			'placeholder',
+			'|',
+			'sourceEditing',
+			'restrictedEditing',
+			'restrictedEditingException'
 		],
 		shouldNotGroupWhenFull: true
 	},
 	placeholderProps: {
-		types: ["Demo Placeholder"],
+		types: [ 'Demo Placeholder' ]
 	},
 	placeholderBrackets: {
-		open: "{{",
-		close: "}}",
+		open: '{{',
+		close: '}}'
 	},
 	language: 'ru',
 	image: {
